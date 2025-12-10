@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="skyBlue">#62CDFA</color>
+    <color name="dodgerBlue">#4294FF</color>
+
+    <color name="colorPrimary">#4294FF</color>
+    <color name="colorPrimaryVariant">#62CDFA</color>
+    <color name="colorSecondary">#62CDFA</color>
+    <color name="colorSecondaryVariant">#4294FF</color>
+    <color name="colorOnPrimary">#FFFFFF</color>
+    <color name="colorOnSecondary">#FFFFFF</color>
+
+</resources>

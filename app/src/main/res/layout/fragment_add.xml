@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/fragment_add_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:padding="16dp">
+
+    <!-- Title -->
+    <TextView
+        android:id="@+id/tvTitleAdd"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/add_birthday_title"
+        android:textAlignment="center"
+        android:textColor="#111111"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:fontFamily="@font/poppins_semibold"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <!-- Avatar + centered camera icon -->
+    <FrameLayout
+        android:id="@+id/avatarContainer"
+        android:layout_width="92dp"
+        android:layout_height="92dp"
+        android:layout_marginTop="12dp"
+        app:layout_constraintTop_toBottomOf="@id/tvTitleAdd"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/imgAvatar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/ic_person"
+            android:scaleType="centerCrop"
+            app:shapeAppearance="@style/ShapeAppearance.Wishem.Circle"
+            app:strokeColor="@color/skyBlue"
+            app:strokeWidth="1dp"/>
+
+        <!-- circular blue chip ensures the camera icon is visually centered -->
+        <ImageView
+            android:id="@+id/btnCamera"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_gravity="bottom|end"
+            android:layout_margin="2dp"
+            android:padding="8dp"
+            android:src="@drawable/ic_camera"
+            app:tint="@android:color/white" />
+    </FrameLayout>
+
+    <!-- Form area fills remaining space above the Add button -->
+    <LinearLayout
+        android:id="@+id/formContainer"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="12dp"
+        app:layout_constraintTop_toBottomOf="@id/avatarContainer"
+        app:layout_constraintBottom_toTopOf="@id/btnAdd"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <!-- Full Name -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/label_full_name"
+            android:textColor="#111111"
+            android:textSize="14sp"
+            android:fontFamily="@font/poppins_semibold"
+            android:layout_marginBottom="4dp"/>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            app:boxBackgroundMode="filled"
+            app:boxBackgroundColor="#F2FBFF"
+            app:boxStrokeColor="@color/skyBlue"
+            app:boxStrokeWidth="1dp"
+            app:shapeAppearance="@style/ShapeAppearance.Material3.Corner.Medium">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="44dp"
+                android:hint="@string/hint_full_name"
+                android:inputType="textPersonName"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Nick Name -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/label_nick_name"
+            android:textColor="#111111"
+            android:textSize="14sp"
+            android:fontFamily="@font/poppins_semibold"
+            android:layout_marginBottom="4dp"/>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            app:boxBackgroundMode="filled"
+            app:boxBackgroundColor="#F2FBFF"
+            app:boxStrokeColor="@color/skyBlue"
+            app:boxStrokeWidth="1dp"
+            app:shapeAppearance="@style/ShapeAppearance.Material3.Corner.Medium">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="44dp"
+                android:hint="@string/hint_optional"
+                android:inputType="textPersonName"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Date of Birth -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/label_dob"
+            android:textColor="#111111"
+            android:textSize="14sp"
+            android:fontFamily="@font/poppins_semibold"
+            android:layout_marginBottom="4dp"/>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            app:boxBackgroundMode="filled"
+            app:boxBackgroundColor="#F2FBFF"
+            app:boxStrokeColor="@color/skyBlue"
+            app:boxStrokeWidth="1dp"
+            app:endIconMode="custom"
+            app:endIconDrawable="@drawable/ic_calendar"
+            app:shapeAppearance="@style/ShapeAppearance.Material3.Corner.Medium">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etDob"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="44dp"
+                android:hint="@string/hint_ddmmyyyy"
+                android:inputType="number"
+                android:digits="0123456789"
+                android:maxLength="8"
+                android:imeOptions="actionDone"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Relation Type -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/label_relation"
+            android:textColor="#111111"
+            android:textSize="14sp"
+            android:fontFamily="@font/poppins_semibold"
+            android:layout_marginBottom="4dp"/>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            app:boxBackgroundMode="filled"
+            app:boxBackgroundColor="#F2FBFF"
+            app:boxStrokeColor="@color/skyBlue"
+            app:boxStrokeWidth="1dp"
+            app:endIconMode="dropdown_menu"
+            app:shapeAppearance="@style/ShapeAppearance.Material3.Corner.Medium">
+
+            <com.google.android.material.textfield.MaterialAutoCompleteTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="44dp"
+                android:hint="@string/hint_relation"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Additional Info (compact, visible) -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/label_additional"
+            android:textColor="#111111"
+            android:textSize="14sp"
+            android:fontFamily="@font/poppins_semibold"
+            android:layout_marginTop="6dp"
+            android:layout_marginBottom="4dp"/>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:boxBackgroundMode="filled"
+            app:boxBackgroundColor="#F2FBFF"
+            app:boxStrokeColor="@color/skyBlue"
+            app:boxStrokeWidth="1dp"
+            app:shapeAppearance="@style/ShapeAppearance.Material3.Corner.Medium">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="84dp"
+                android:hint="@string/hint_additional"
+                android:gravity="top|start"
+                android:inputType="textMultiLine"
+                android:paddingTop="8dp"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+    </LinearLayout>
+
+    <!-- Add button pinned to bottom -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnAdd"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:text="@string/btn_add"
+        android:textAllCaps="false"
+        android:textStyle="bold"
+        android:layout_marginBottom="95dp"
+        app:cornerRadius="14dp"
+        app:backgroundTint="@color/dodgerBlue"
+        app:rippleColor="@color/skyBlue"
+        android:textColor="@android:color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

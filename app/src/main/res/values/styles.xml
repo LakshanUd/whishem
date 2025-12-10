@@ -1,0 +1,7 @@
+<resources>
+
+    <style name="ShapeAppearance.Wishem.Circle" parent="ShapeAppearance.Material3.LargeComponent">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
+    </style>
+</resources>
